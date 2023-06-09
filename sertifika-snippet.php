@@ -28,9 +28,20 @@ checkSearchCountLimit();
 */
 ?>
 
+<style>
+.full-width .container, .full-width .columns {
+    max-width: 100%;
+    width: 100%;
+}
+
+.full-width .column.is-half {
+    width: 100%;
+}
+</style>
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
-<section class="section">
+<section class="section full-width">
     <div class="container">
         <div class="columns is-centered">
             <div class="column is-half">
@@ -50,6 +61,7 @@ checkSearchCountLimit();
         </div>
     </div>
 </section>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -78,7 +90,7 @@ checkSearchCountLimit();
                     if (response.ok) {
                         // Show PDF viewer and set PDF embed source
                         pdfViewer.style.display = 'block';
-                        pdfEmbed.src = pdfUrl;
+                        pdfEmbed.src= pdfUrl;
 
                         // Set download button link
                         downloadButton.href = pdfUrl;
@@ -103,7 +115,7 @@ checkSearchCountLimit();
 
         // Function to increase the search count
         function increaseSearchCount() {
-            fetch('<?php echo admin_url("admin-ajax.php"); ?>', {
+            fetch('https://yazilimmuhendisligi.com.tr/wp-admin/admin-ajax.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
@@ -126,6 +138,7 @@ checkSearchCountLimit();
         }
     });
 </script>
+
 
 <?php
 get_footer();
